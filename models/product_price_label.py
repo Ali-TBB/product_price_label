@@ -62,5 +62,6 @@ class ReportPriceLabel(models.AbstractModel):
             'font_price': font_price,
             'barcode_img_width': barcode_img_width,
             'barcode_img_height': barcode_img_height,
+            'img_width': round((barcode_img_width * 400) / 150),
+            'img_height': round((barcode_img_height * 100) / 50),
         }
-
