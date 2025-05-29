@@ -1,0 +1,35 @@
+<odoo>
+    <template id="product_price_label_template">
+        <t t-call="web.basic_layout">
+            <main>
+                <t t-foreach="docs" t-as="product">
+                    <div class="page"
+                         t-attf-style="width:{{ label_width }}mm; height:{{ label_height }}mm; page-break-after: always; text-align:center; padding:1%;">
+                        <!-- Product Name -->
+                        <div style="font-size:13px; width:100%; margin-bottom:3px;">
+                            <t t-esc="product.name"/>
+                        </div>
+
+                        <!-- Barcode image -->
+                        <div style="margin:2px 0;">
+                            <img
+                                t-att-src="'/report/barcode/?type=Code128&amp;value=%s&amp;width=400&amp;height=100&amp;quiet=0' % product.barcode"
+                                style="height:50px; width:150px; max-width:100%; display:block; margin:0 auto;"/>
+                        </div>
+
+                        <!-- Barcode number -->
+                        <div style="font-size:12px; margin-bottom:2px;">
+                            <t t-esc="product.barcode"/>
+                        </div>
+
+                        <!-- Price -->
+                        <div style="font-size:18px; font-weight:bold; line-height:1;">
+                            Prix : <t t-esc="'%.2f' % product.list_price"/>
+                            <t t-esc="product.currency_id.symbol"/>
+                        </div>
+                    </div>
+                </t>
+            </main>
+        </t>
+    </template>
+</odoo>
