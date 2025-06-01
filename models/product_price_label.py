@@ -62,6 +62,16 @@ class ReportPriceLabel(models.AbstractModel):
         barcode_img_height = round((height * 50) / 35)
 
         # Return the calculated values and product data to the report template
+        if font_name < 10 and height < 25:
+            font_name = 10
+        elif font_name < 10 and height >= 25:
+            font_name = 11
+        if font_barcode < 10 and height < 25:
+            font_barcode = 10
+        elif font_barcode < 10 and height >= 25:
+            font_barcode = 10
+        if font_price < 14:
+            font_price = 14
         return {
             'docs': products,
             'font_name': font_name,
