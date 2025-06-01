@@ -13,6 +13,7 @@
         #'security/ir.model.access.csv',
         'reports/product_price_label.xml',
         'views/product_price_label_template.xml',
+        'views/res_config_settings_view.xml',
 
     ],
     'demo': [],

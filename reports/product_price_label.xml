@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
   <!-- Paper Width -->
   <record id="param_price_label_width" model="ir.config_parameter">
