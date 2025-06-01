@@ -4,10 +4,10 @@
         <main>
           <t t-foreach="docs" t-as="product">
             <div class="page"
-                 t-attf-style="width:{{ label_width }}mm; height:{{ label_height }}mm; display: flex; justify-content: center; align-items: center; padding: 0; page-break-after: always;">
+                 t-attf-style="display: flex; justify-content: center; align-items: center; padding: 0; page-break-after: always;">
               
               <!-- Container to hold and center all content -->
-              <div align="center" style="width: 100%; height: 100%; padding: 1mm; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; box-sizing: border-box;">
+              <div align="center" style="width: 100%; height: 100%; padding: 1mm; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; box-sizing: border-box; ">
                 
                 <!-- Product Name -->
                 <div t-attf-style="font-size:{{ font_name }}px; margin-bottom: 3px;">
