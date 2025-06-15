@@ -1,39 +1,55 @@
 <odoo>
-    <template id="product_price_label_template">
-        <t t-call="web.basic_layout">
-          <main>
-            <t t-foreach="docs" t-as="product">
-              <div class="page"
-                   t-attf-style="display: flex; justify-content: center; align-items: center; padding: 0; page-break-after: always;">
-                
-                <!-- Container to hold and center all content -->
-                <div align="center" style="width: 100%; height: 100%; padding: 1mm; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; box-sizing: border-box; ">
-                  
-                  <!-- Product Name -->
-                  <div t-attf-style="font-size:13px; margin-bottom: 3px;">
-                    <t t-esc="product.name"/>
-                  </div>
-    
-                  <!-- Barcode image -->
-                  <div style="margin: 2px 0;">
-                    <img t-att-src="'/report/barcode/?type=Code128&amp;value=%s&amp;width=400&amp;height=500&amp;quiet=0' % product.barcode"
-                         t-attf-style="width:150px; height:50px;" />
-                  </div>
-    
-                  <!-- Barcode number -->
-                  <div t-attf-style="font-size:12px; margin-bottom: 2px;">
-                    <t t-esc="product.barcode"/>
-                  </div>
-    
-                  <!-- Price -->
-                  <div t-attf-style="font-size:18px; font-weight: bold; line-height: 1;">
-                    Prix : <t t-esc="'%.2f' % product.list_price"/>
-                    <t t-esc="product.currency_id.symbol"/>
-                  </div>
-                </div>
+  <template id="product_price_label_template">
+    <t t-call="web.basic_layout">
+      <main>
+        <t t-foreach="docs" t-as="product">
+          <div class="page"
+            t-attf-style="display: flex; justify-content: center; align-items: center; padding: 0; page-break-after: always;">
+
+            <!-- Container to hold and center all content -->
+            <div align="center"
+              style="width: 100%; height: 100%; padding: 1mm; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; box-sizing: border-box; ">
+
+              <div
+                style="
+                  font-size:13px;
+                  margin: 0;
+                  padding: 0;
+                  line-height: 1.2;
+                  max-height: 4.4em;
+                  overflow: hidden;
+                  display: -webkit-box;
+                  -webkit-line-clamp: 4;
+                  -webkit-box-orient: vertical;
+                  text-overflow: ellipsis;
+                  word-break: break-word;
+                  text-align: center;
+              ">
+                <t t-esc="product.name" />
               </div>
-            </t>
-          </main>
+              <!-- Barcode image -->
+              <div style="margin: 2px 0;">
+                <img
+                  t-att-src="'/report/barcode/?type=Code128&amp;value=%s&amp;width=400&amp;height=500&amp;quiet=0' % product.barcode"
+                  t-attf-style="width:150px; height:50px;" />
+              </div>
+
+              <!-- Barcode number -->
+              <div t-attf-style="font-size:12px; margin-bottom: 1px;">
+                <t t-esc="product.barcode" />
+              </div>
+
+              <!-- Price -->
+              <div
+                t-attf-style="font-size:18px; font-weight: bold; line-height: 1; margin-bottom: 1px;">
+                Prix : <t t-esc="'%.2f' % product.list_price" />
+                    <t
+                  t-esc="product.currency_id.symbol" />
+              </div>
+            </div>
+          </div>
         </t>
-      </template>
+      </main>
+    </t>
+  </template>
 </odoo>
